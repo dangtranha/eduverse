@@ -1,10 +1,9 @@
 import React from "react";
-import CourseCard from "./component/CardCourse";
-import MenuBar from "./Component/MenuBar";
+import HomePage from "./View/HomePage";
 function App() {
   return (
     <div className="App">
-      <MenuBar />
+      <HomePage />
     </div>
   );
 }
