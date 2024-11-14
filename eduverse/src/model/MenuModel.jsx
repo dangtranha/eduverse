@@ -24,4 +24,5 @@ export const menuItems = [
     ]
   },
   { id: 4, label: "My Courses", link: "#" }
+
 ];
