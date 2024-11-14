@@ -1,11 +1,13 @@
 import React from "react";
 import CardControl from "../controller/CardController";
 import MenuControl from "../Controller/MenuControl";
+import Categories from "../controller/CategoriesController";
 function HomePage() {
   return (
-    <div className="Home">
-      <MenuControl />
-      <CardControl/>
+    <div>
+        <MenuControl/>
+        <Categories/>
+        <CardControl/>
     </div>
   )
 }
