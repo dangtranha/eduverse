@@ -1,0 +1,104 @@
+import React, { useState } from "react";
+import { FaBars, FaTimes, FaUser, FaShoppingCart, FaHeart, FaSearch, FaAngleDown } from "react-icons/fa";
+import { PiBellRingingLight } from "react-icons/pi";
+import { RiShoppingCart2Line } from "react-icons/ri";
+import { Popover, PopoverButton, PopoverPanel } from '@headlessui/react'
+
+const MenuBar = () => {
+  const [isOpen, setIsOpen] = useState(false);
+  const [activeDropdown, setActiveDropdown] = useState(null);
+
+  const menuItems = [
+    { id: 1, label: "Home", link: "#" },
+    {
+      id: 2,
+      label: "Discover",
+      link: "#",
+    },
+    {
+      id: 3,
+      label: "Categories",
+      link: "#",
+      submenu: [
+        { id: "c1", label: "Art & Desgin", link: "#" },
+        { id: "c2", label: "Development", link: "#" },
+        { id: "c3", label: "Communucation", link: "#" },
+        { id: "c4", label: "Photoraphy", link: "#" },
+        { id: "c5", label: "Videography", link: "#" },
+        { id: "c6", label: "Marketing", link: "#" },
+        { id: "c7", label: "Connent Writing", link: "#" },
+        { id: "c8", label: "Finance", link: "#" },
+        { id: "c9", label: "Science", link: "#" },
+        { id: "c10", label: "Network", link: "#" }
+      ]
+    },
+    { id: 4, label: "My Courses", link: "#" }
+  ];
+
+  const handleDropdown = (id) => {
+    setActiveDropdown(activeDropdown === id ? null : id);
+  };
+
+  return (
+    <nav className="bg-white shadow-lg">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex justify-between items-center h-16">
+          <div className="flex-shrink-0 flex items-center">
+            <span className="text-3xl font-bold">EduVerse</span>
+          </div>
+
+          <div className="hidden md:flex items-center space-x-8">
+            {menuItems.map((item) => (
+              <div key={item.id} className="relative">
+                <button
+                  onClick={() => handleDropdown(item.id)}
+                  className="text-gray-700 hover:text-orange-600 px-3 py-2 rounded-md text-sm font-medium transition duration-300 flex items-center"
+                >
+                  {item.label}
+                  {item.submenu && (
+                    <FaAngleDown className="ml-1 h-4 w-4" />
+                  )}
+                </button>
+                {item.submenu && activeDropdown === item.id && (
+                  <div className="absolute z-10 mt-2 w-48 bg-white rounded-md shadow-lg py-1">
+                    {item.submenu.map((subItem) => (
+                      <a
+                        key={subItem.id}
+                        href={subItem.link}
+                        className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-orange-600"
+                      >
+                        {subItem.label}
+                      </a>
+                    ))}
+                  </div>
+                )}
+              </div>
+            ))}
+          </div>
+          {/* Icons */}
+      <div className="hidden md:flex items-center space-x-6">
+        <button className="text-gray-700 hover:text-orange-600 transition duration-300">
+          <PiBellRingingLight className="h-5 w-5" />
+        </button>
+        <button className="text-gray-700 hover:text-orange-600 transition duration-300">
+          <RiShoppingCart2Line className="h-5 w-5" />
+        </button>
+        <Popover className="relative">
+          <PopoverButton className="text-gray-700 hover:text-orange-600 transition duration-300">
+            <FaUser className="h-5 w-5" />
+          </PopoverButton>
+          <PopoverPanel className="absolute z-2 mt-2 w-40 bg-white rounded-md shadow-lg py-1">
+            <a href="#" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-orange-600">My Information</a>
+            <a href="#" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-orange-600">My Profile</a>
+            <a href="#" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-orange-600">Payment History</a>
+            <a href="#" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-orange-600">Sign Out</a>
+          </PopoverPanel>
+        </Popover>
+      </div>
+        </div>
+      </div>
+    </nav>
+  );
+};
+
+export default MenuBar;
