@@ -1,6 +1,6 @@
 import React from "react";
 import CardControl from "../controller/CardController";
-import MenuControl from "../controller/MenuControl";
+import MenuControl from "../Controller/MenuControl";
 import Categories from "../controller/CategoriesController";
 import ProfileView from "./ProfileView"
 import {

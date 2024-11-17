@@ -2,7 +2,7 @@
 const accounts = [
   {
     name: "Tran Ha Dang",
-    email: "dm@reactjs.cc",
+    email: "0000",
     password: "0000", // Mật khẩu chỉ để minh họa, không nên lưu như thế này trong thực tế.
   },
   {

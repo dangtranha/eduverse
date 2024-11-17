@@ -1,31 +1,21 @@
 import React from "react";
-import HomePage from "./view/HomePage";
-
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Login from "./component/Login";
+import Register from "./component/Register";
 import CourseContentView from "./view/CourseContentView";
-import LoginView from "./view/LoginView";
-
-import CardControler from "./controller/CardController";
-
-
-import {
-  BrowserRouter as Router,
-  Routes,
-  Route
-} from "react-router-dom";
-
-function App() {
+const App = () => {
   return (
-    <div className="App">
-
-      {/* login view */}
-      <HomePage />
-
-
-
-
-    </div>
-    // <TestPage />
+    <Router>
+      <Routes>
+        {/* Route đến các trang */}
+        <Route path="/" element={<Login />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/register" element={<Register />} />
+        <Route path="/homepage" element={<CourseContentView />} />
+      </Routes>
+    </Router>
+    
   );
-}
+};
 
 export default App;
