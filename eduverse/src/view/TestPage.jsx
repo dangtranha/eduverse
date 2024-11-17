@@ -1,23 +1,40 @@
 import React, { useState } from "react";
-import Form from "../component/Certificate/Form";
-import CertificateTemplate from "../component/Certificate/Certificate";
+import Certificate from "../component/Certificate/Certificate";
 
 function App() {
-  const [certificateData, setCertificateData] = useState({});
-
-  const handleGenerate = (data) => {
-    setCertificateData(data);
-  };
+  const [name, setName] = useState('John Doe');
+  const [course, setCourse] = useState('Full Stack Development');
+  const [date, setDate] = useState('2024-11-17');
 
   return (
-    <div className="min-h-screen bg-gray-100 p-8">
-      <h1 className="text-center text-3xl font-bold text-gray-800 mb-8">
-        Certificate Generator
-      </h1>
-      <Form onGenerate={handleGenerate} />
-      <div className="mt-8">
-        <CertificateTemplate {...certificateData} />
+    <div className="bg-gray-100 min-h-screen flex flex-col items-center justify-center">
+      {/* Form Input */}
+      <div className="bg-white shadow p-6 rounded-lg mb-10">
+        <h2 className="text-2xl font-bold mb-5">Certificate Generator</h2>
+        <input
+          type="text"
+          placeholder="Full Name"
+          value={name}
+          onChange={(e) => setName(e.target.value)}
+          className="border rounded w-full p-2 mb-4"
+        />
+        <input
+          type="text"
+          placeholder="Course Name"
+          value={course}
+          onChange={(e) => setCourse(e.target.value)}
+          className="border rounded w-full p-2 mb-4"
+        />
+        <input
+          type="date"
+          value={date}
+          onChange={(e) => setDate(e.target.value)}
+          className="border rounded w-full p-2 mb-4"
+        />
       </div>
+
+      {/* Certificate Preview */}
+      <Certificate name={name} course={course} date={date} />
     </div>
   );
 }
