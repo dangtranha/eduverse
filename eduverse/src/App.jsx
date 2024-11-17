@@ -1,7 +1,9 @@
 import React from "react";
-import MenuView from "./Component/MenuBar";
-import MenuControl from "./Controller/MenuControl";
-import HomePage from "./View/HomePage";
+import HomePage from "./view/HomePage";
+
+import CourseContentView from "./view/CourseContentView";
+import LoginView from "./view/LoginView";
+
 import CardControler from "./controller/CardController";
 
 
@@ -22,6 +24,7 @@ function App() {
 
 
     </div>
+    // <TestPage />
   );
 }
 

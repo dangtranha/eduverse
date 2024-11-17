@@ -36,6 +36,7 @@ function HomePage() {
 
       </div>
     </Router >
+
   )
 }
 
