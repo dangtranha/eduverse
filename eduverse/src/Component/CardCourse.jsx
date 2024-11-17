@@ -32,7 +32,8 @@ const CourseView = ({ courses, categories, filterCategory, handleFilter, sortBy,
       </div>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
         {courses.map((course) => (
-          <div key={course.id} className="bg-white rounded-lg shadow-lg overflow-hidden flex flex-col h-full">
+          <div key={course.id} 
+            className="bg-white rounded-lg shadow-lg overflow-hidden transform transition-all duration-300 hover:scale-105 flex flex-col h-full hover:text-orange-500">
             <img
               src={`https://${course.image}`}
               alt={course.title}
@@ -49,12 +50,12 @@ const CourseView = ({ courses, categories, filterCategory, handleFilter, sortBy,
                 <span>{course.student}</span>
               </div>
             </div>
-            <div className="border-t border-gray-200 p-4 flex items-center justify-between mt-auto">
+            <div className="border-t border-gray-200 p-4 flex items-center justify-between mt-auto hover:text-orange-500">
               <p className="text-gray-400 line-through">${course.price.toFixed(2)}</p>
-              <p className="text-green-500 font-semibold ml-2">Free</p>
+              <p className="text-gray-500 font-semibold ml-2 ">Free</p>
             </div>
             <div className="p-4">
-              <button className="bg-blue-500 text-white rounded-md px-4 py-2 w-full font-semibold hover:bg-blue-600 focus:outline-none">
+              <button className="bg-white-400 text-organge rounded-md px-4 py-2 w-full font-semibold hover:text-white hover:bg-orange-600 focus:outline-none">
                 View More
               </button>
             </div>
