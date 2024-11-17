@@ -1,12 +1,13 @@
 import React from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import TestPage from "./view/TestPage";
 import HomePage from "./View/HomePage";
-import DiscoverPage from "./view/Discoverpage";
-import OverviewCourse from "./Component/OverviewCourse";
+
+import CourseContentView from "./view/CourseContentView";
+import LoginView from "./view/LoginView";
 function App() {
   return (
-    <div className="App">
-      <HomePage />
-    </div>
+    <TestPage />
   );
 }
 

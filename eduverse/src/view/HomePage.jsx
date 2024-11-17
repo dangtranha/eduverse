@@ -5,9 +5,9 @@ import Categories from "../controller/CategoriesController";
 function HomePage() {
   return (
     <div>
-        <MenuControl/>
-        <Categories/>
-        <CardControl/>
+      <MenuControl />
+      <Categories />
+      <CardControl />      
     </div>
   )
 }
