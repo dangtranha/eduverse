@@ -1,10 +1,30 @@
 import React from "react";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import TestPage from "./view/TestPage";
-import HomePage from "./View/HomePage";
+import HomePage from "./view/HomePage";
+
+import CourseContentView from "./view/CourseContentView";
+import LoginView from "./view/LoginView";
+
+import CardControler from "./controller/CardController";
+
+
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route
+} from "react-router-dom";
+
 function App() {
   return (
-    <HomePage />
+    <div className="App">
+
+      {/* login view */}
+      <HomePage />
+
+
+
+
+    </div>
+    // <TestPage />
   );
 }
 
