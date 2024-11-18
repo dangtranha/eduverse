@@ -2,17 +2,15 @@ import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import AuthView from "./view/AuthView";
 import CourseContentView from "./view/CourseContentView";
+import TestPage from "./view/TestPage";
 const App = () => {
   return (
-    <Router>
+ <Router>
       <Routes>
-        {/* Route đến các trang */}
         <Route path="/auth" element={<AuthView />} />
-        <Route path="/cousecontent" element={<CourseContentView />} />
-        <Route path="/sign-out" element={<AuthView />} />
+        <Route path="/coursecontent" element={<CourseContentView/>} />
       </Routes>
     </Router>
-    
   );
 };
 
