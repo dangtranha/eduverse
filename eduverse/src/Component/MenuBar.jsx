@@ -18,7 +18,6 @@ const MenuView = ({ menuItems, activeDropdown, handleDropdown, handleMenuItemCli
             <div key={item.id} className="relative">
               <button
 
-
                 onClick={() => handleMenuItemClick(item.link)}
                 className="text-gray-700 hover:text-orange-600 px-3 py-2 rounded-md text-sm font-medium transition duration-300 flex items-center"
               >

@@ -8,6 +8,7 @@ export const courses = [
     timeforlearn: "2 weeks",
     student: 129,
     category: "Development",
+    status:"Done",
     inCart: false
   },
   {
@@ -19,6 +20,7 @@ export const courses = [
     timeforlearn: "3 weeks",
     student: 130,
     category: "Data Science",
+    status:"InProgress",
     inCart: false
   },
   {
@@ -30,6 +32,7 @@ export const courses = [
     student: 131,
     timeforlearn: "1 week",
     category: "Marketing",
+    status:"Done",
     inCart: false
   },
   {
@@ -41,6 +44,7 @@ export const courses = [
     student: 132,
     timeforlearn: "2 weeks",
     category: "Design",
+    status:"Done",
     inCart: false
   }
 ];
