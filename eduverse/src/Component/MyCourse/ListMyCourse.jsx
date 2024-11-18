@@ -10,7 +10,7 @@ import {
 
 const ListMyCourse = ({ courses = [], addToCart, seeMore }) => {
     return (
-        <div className=" mx-auto p-4" >
+        <div className=" w-1/2 mx-auto p-4" >
             {courses.map((course) => (
                 <div
                     key={course.id}

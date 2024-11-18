@@ -1,10 +1,10 @@
 import React from "react";
 
 const NavbarOverviewCourse = ({ menuItems, handleMenuItemClick }) => (
-    <nav className="shadow-lg  rounded-lg w-full items-center">
-        <div className=" px-4 sm:px-6 lg:px-8">
-            <div className="items-center h-16">
-                <div className=" hidden md:flex justify-between  justify-center items-center items-center space-x-8">
+    <nav className="w-1/2 mx-auto  shadow-lg rounded-lg ">
+        <div className="px-4 sm:px-6 lg:px-8">
+            <div className="h-16 flex justify-center items-center">
+                <div className="hidden md:flex space-x-8">
                     {menuItems.map((item) => (
                         <div key={item.id} className="relative">
                             <button

@@ -9,6 +9,8 @@ import MyCourseView from "./MyCourse/MyCourseView";
 import CourseContentController from "../controller/CourseContentController"
 import { MenuCourseContent } from "../Component/MenuCourseContent";
 import MyCartPage from "./MyCartView";
+import MyProfileController from '../controller/MyProfileController';
+
 
 import {
   BrowserRouter as Router,
@@ -32,9 +34,9 @@ function HomePage() {
           <Route path="/home" element={<><Categories /><CardControl /></>} />
           <Route path="/mycourse/*" element={<MyCourseView />} />
           <Route path="/discover/*" element={<DiscoverPageView />} />
-          <Route path="/categories" element={<div>catogory</div>} />
+          <Route path="/categories" element={<Categories />} />
           <Route path="/my-information/*" element={<ProfileView />} />
-          <Route path="/my-profile" element={<>profile</>} />
+          <Route path="/my-profile" element={<MyProfileController />} />
           <Route path="/payment-history" element={<CourseContentController />} />
 
           <Route path="/shopping" element={<MyCartPage />} />
@@ -42,7 +44,7 @@ function HomePage() {
 
 
 
-          {/* <Route path="*" element={<CourseContentView></CourseContentView>} /> */}
+          <Route path="*" element={<div>404</div>} />
 
 
         </Routes>

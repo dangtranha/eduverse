@@ -4,15 +4,15 @@ import { BsAward } from "react-icons/bs";
 import { MdSchool } from "react-icons/md";
 import ProfileCard from "../Component/ProfileCard"
 import ProfileCertificate from "../Component/ProfileCertificate"
-import Certificate from "./Certificate/Certificate";
+import Certificate from "./Certificate"
 
-const UserProfile = ({ courses,userData }) => {
-    const handleCertificateClick = (courseTitle, userName) => {
-        alert(`Course: ${courseTitle}\nUser: ${userName}`);
-    };
+const UserProfile = ({ courses, userData }) => {
+  const handleCertificateClick = (courseTitle, userName) => {
+    alert(`Course: ${courseTitle}\nUser: ${userName}`);
+  };
   return (
     <div className="min-h-screen bg-gray-50 py-8 px-4 sm:px-6 lg:px-8">
-      
+
       <div className="max-w-full mx-auto">
         <div className="bg-white rounded-lg shadow-lg overflow-hidden">
           <div className="flex flex-col sm:flex-row">
@@ -61,30 +61,30 @@ const UserProfile = ({ courses,userData }) => {
             {/* Enrolled Courses and Certificates Section */}
             <div className="sm:w-2/3 px-6 py-8 sm:px-8">
               {/* Enrolled Courses */}
-            <div>
-            <h2 className="text-2xl font-semibold text-gray-800 mb-6 flex items-center">
-                <MdSchool className="mr-3 text-3xl" /> Enrolled Courses
-            </h2>
-            <div className="flex space-x-6 overflow-x-auto scrollbar-hide">
-                <ProfileCard courses={courses} />
-            </div>
-            </div>
+              <div>
+                <h2 className="text-2xl font-semibold text-gray-800 mb-6 flex items-center">
+                  <MdSchool className="mr-3 text-3xl" /> Enrolled Courses
+                </h2>
+                <div className="flex space-x-6 overflow-x-auto scrollbar-hide">
+                  <ProfileCard courses={courses} />
+                </div>
+              </div>
               {/* Certificates */}
               <div className="mt-8">
                 <h2 className="text-xl font-semibold text-gray-800 mb-4 flex items-center">
                   <BsAward className="mr-2" /> Certificates
                 </h2>
                 <div className="flex space-x-6 overflow-x-auto scrollbar-hide">
-                {courses.map((course) => (
-                <ProfileCertificate
-                    key={course.id}
-                    course={course.title}
-                    name={userData.name}
-                    onClick={handleCertificateClick}
-                />
-                ))}
+                  {courses.map((course) => (
+                    <ProfileCertificate
+                      key={course.id}
+                      course={course.title}
+                      name={userData.name}
+                      onClick={handleCertificateClick}
+                    />
+                  ))}
 
-            </div>
+                </div>
               </div>
             </div>
           </div>

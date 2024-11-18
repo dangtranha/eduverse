@@ -2,7 +2,7 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import NavbarProfile from '../Component/NavbarProfile';
 import { NavbarProfileModel } from '../model/NavbarProfileModel';
-import Certificate from '../Component/Certificate/Certificate';
+import Certificate from '../Component/Certificate'
 
 const CertificateController = (course,name) => {
 
