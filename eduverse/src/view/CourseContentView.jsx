@@ -3,7 +3,7 @@ import CourseContent from '../component/CourseContent';
 import MenuCourseContent from '../component/MenuCourseContent';
 import { getAllCourses } from '../controller/CourseContentCotrller';
 import MenuController from '../Controller/MenuControl';
-const HomePage = () => {
+const CourseContentView = () => {
   const [selectedSubItem, setSelectedSubItem] = useState(null);
   const courses = getAllCourses();
 
@@ -26,4 +26,4 @@ const HomePage = () => {
   );
 };
 
-export default HomePage;
+export default CourseContentView;
