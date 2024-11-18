@@ -1,5 +1,5 @@
 import React, { useRef } from 'react';
-import certificateTemplate from '../assets/certificate-template.jpg'; 
+import certificateTemplate from '../assets/certificate.png'; // Import hình ảnh chứng chỉ
 import html2pdf from "html2pdf.js"; // Import thư viện html2pdf
 
 const Certificate = ({ name, course, date }) => {
