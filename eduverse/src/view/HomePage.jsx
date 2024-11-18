@@ -5,7 +5,9 @@ import Categories from "../controller/CategoriesController";
 import ProfileView from "./ProfileView"
 import DiscoverPageView from "./Discover/DiscoverPageView"
 import MyCourseView from "./MyCourse/MyCourseView";
-
+// import CourseContentView from "./CourseContentView";
+import CourseContentController from "../controller/CourseContentController"
+import { MenuCourseContent } from "../Component/MenuCourseContent";
 
 import {
   BrowserRouter as Router,
@@ -27,19 +29,18 @@ function HomePage() {
 
           <Route path="/" element={<><Categories /><CardControl /></>} />
           <Route path="/home" element={<><Categories /><CardControl /></>} />
-          <Route path="/mycourse" element={<MyCourseView />} />
+          <Route path="/mycourse/*" element={<MyCourseView />} />
           <Route path="/discover/*" element={<DiscoverPageView />} />
           <Route path="/categories" element={<div>catogory</div>} />
           <Route path="/my-information/*" element={<ProfileView />} />
           <Route path="/my-profile" element={<>profile</>} />
-          <Route path="/payment-history" element={<div>payment</div>} />
+          <Route path="/payment-history" element={<CourseContentController />} />
 
-          <Route path="/shopping" element={<div>shopping</div>} />
+          {/* <Route path="/shopping" element={<CourseContentView />} /> */}
           <Route path="/announce" element={<div></div>} />
 
 
 
-          <Route path="*" element={<div>404 Not Found</div>} />
           {/* <Route path="*" element={<CourseContentView></CourseContentView>} /> */}
 
 

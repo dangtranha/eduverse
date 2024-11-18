@@ -1,9 +1,9 @@
 import React from "react";
 import HomePage from "./view/HomePage";
 
-import CourseContentView from "./view/CourseContentView";
+// import CourseContentView from "./view/CourseContentView";
 import Login from "./view/LoginView"
-import CardControler from "./controller/CardController";
+// import CardControler from "./controller/CardController";
 
 
 import {
