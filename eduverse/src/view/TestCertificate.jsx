@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Certificate from "../component/Certificate";
 
-function App() {
+function CertificateView() {
   const [name, setName] = useState('John Doe');
   const [course, setCourse] = useState('Full Stack Development');
   const [date, setDate] = useState('2024-11-17');
@@ -39,4 +39,4 @@ function App() {
   );
 }
 
-export default App;
+export default CertificateView;
