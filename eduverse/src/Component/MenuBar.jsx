@@ -5,7 +5,8 @@ import { RiShoppingCart2Line } from "react-icons/ri";
 import { Popover, PopoverButton, PopoverPanel } from "@headlessui/react";
 import { LuAnchor } from "react-icons/lu";
 // import MenuPopoverInformationController from "../controller/MenuPopoverInformationController";
-const MenuView = ({ menuItems, activeDropdown, handleDropdown, handleMenuItemClick, icons }) => (
+const MenuView = ({ menuItems, activeDropdown, handleDropdown, handleMenuItemClick, icons,   isLoggedIn, 
+  handleLogout, userData }) => (
   <nav className="bg-white shadow-lg">
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div className="flex justify-between items-center h-16">
@@ -61,33 +62,30 @@ const MenuView = ({ menuItems, activeDropdown, handleDropdown, handleMenuItemCli
           </button>
 
 
-          <Popover className="relative">
-            <PopoverButton className="text-gray-700 hover:text-orange-600 transition duration-300">
-              <FaUser className="h-5 w-5" />
-            </PopoverButton>
-            <PopoverPanel className="absolute z-2 mt-2 w-40 bg-white rounded-md shadow-lg py-1">
-              <a className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-orange-600" onClick={() => {
-                handleMenuItemClick("/my-information");
-              }} >My Information</a>
-              <a className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-orange-600" onClick={() => {
-                handleMenuItemClick("/my-profile");
-              }}
-              > My Profile</a>
-              <a className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-orange-600"
-                onClick={() => {
-                  handleMenuItemClick("/payment-history");
-                }}
-              > Payment History</a>
-              <a className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-orange-600"
-                onClick={() => {
-                  handleMenuItemClick("/sign-out");
-                }}
-              > Sign Out</a>
-            </PopoverPanel>
-          </Popover>
-
-
-
+        <div className="hidden md:flex items-center space-x-6">
+          {isLoggedIn ? (
+            <Popover className="relative">
+              <PopoverButton>
+                <img src={userAvatar} alt="Avatar" className="h-8 w-8 rounded-full" />
+              </PopoverButton>
+              <PopoverPanel className="absolute z-10 mt-2 w-40 bg-white rounded-md shadow-lg py-1">
+                <a className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" onClick={() => handleMenuItemClick("/my-profile")}>
+                  {userName}
+                </a>
+                <a className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" onClick={handleLogout}>
+                  Sign Out
+                </a>
+              </PopoverPanel>
+            </Popover>
+          ) : (
+            <button
+              className="text-gray-700 hover:text-orange-600 transition"
+              onClick={() => handleMenuItemClick("/auth")}
+            >
+              Login
+            </button>
+          )}
+          </div>
         </div>
       </div >
     </div >
