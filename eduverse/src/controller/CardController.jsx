@@ -2,11 +2,13 @@
 import React, { useState } from "react";
 import CourseView from "../component/CardCourse";
 import { courses as initialCourses } from "../model/CardModel";
-
+  
 const CourseController = () => {
   const [courses, setCourses] = useState(initialCourses);
   const [sortBy, setSortBy] = useState("price");
   const [filterCategory, setFilterCategory] = useState("All");
+
+
 
   const categories = ["All", "Development", "Data Science", "Marketing", "Design"];
 
