@@ -1,7 +1,11 @@
 import React, { useState } from "react";
 
 const RegisterForm = ({ onSubmit, onSwitchToLogin }) => {
-  const [formData, setFormData] = useState({ email: "", password: "" });
+  const [formData, setFormData] = useState({
+    email: "",
+    password: "",
+    confirmPassword: "",
+  });
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -43,6 +47,21 @@ const RegisterForm = ({ onSubmit, onSwitchToLogin }) => {
             className="border rounded-lg p-2 w-full"
             placeholder="•••••••"
             value={formData.password}
+            onChange={handleChange}
+            required
+          />
+        </div>
+        <div>
+          <label htmlFor="confirmPassword" className="block mb-2 text-sm">
+            Confirm Password
+          </label>
+          <input
+            type="password"
+            id="confirmPassword"
+            name="confirmPassword"
+            className="border rounded-lg p-2 w-full"
+            placeholder="•••••••"
+            value={formData.confirmPassword}
             onChange={handleChange}
             required
           />
