@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import Certificate from "../component/Certificate/Certificate";
+import Certificate from "../component/Certificate";
 
 function App() {
   const [name, setName] = useState('John Doe');

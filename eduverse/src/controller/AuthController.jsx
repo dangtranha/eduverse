@@ -6,11 +6,7 @@ const AuthController = {
     if (isLoggedIn) {
       navigate("/coursecontent"); // Điều hướng đến trang Homepage
       alert("Login successful!");
-      const userData = {
-        email,
-        avatar: "https://via.placeholder.com/150", // Đường dẫn ảnh giả lập
-        name: "John Doe", // Tên người dùng giả lập
-      };
+
       return userData; // Trả về thông tin người dùng
     } else {
       alert("Invalid email or password!");
