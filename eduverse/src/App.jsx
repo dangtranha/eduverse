@@ -6,7 +6,12 @@ import TestPage from "./view/TestPage";
 import CertificateView from "./view/TestCertificate";
 const App = () => {
   return (
-    <CertificateView />
+ <Router>
+      <Routes>
+        <Route path="/auth" element={<AuthView />} />
+        <Route path="/coursecontent" element={<CourseContentView/>} />
+      </Routes>
+    </Router>
   );
 };
 

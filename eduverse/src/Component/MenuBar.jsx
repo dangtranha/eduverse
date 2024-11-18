@@ -66,15 +66,25 @@ const MenuView = ({ menuItems, activeDropdown, handleDropdown, handleMenuItemCli
           {isLoggedIn ? (
             <Popover className="relative">
               <PopoverButton>
-                <img src={userAvatar} alt="Avatar" className="h-8 w-8 rounded-full" />
+                <FaUser className="h-5 w-5" />
               </PopoverButton>
-              <PopoverPanel className="absolute z-10 mt-2 w-40 bg-white rounded-md shadow-lg py-1">
-                <a className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" onClick={() => handleMenuItemClick("/my-profile")}>
-                  {userName}
-                </a>
-                <a className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" onClick={handleLogout}>
-                  Sign Out
-                </a>
+              <PopoverPanel className="absolute z-2 mt-2 w-40 bg-white rounded-md shadow-lg py-1">
+                <a className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-orange-600" onClick={() => {
+                  handleMenuItemClick("/my-information");
+                  }} >My Information</a>
+                  <a className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-orange-600" onClick={() => {
+                    handleMenuItemClick("/my-profile");
+                  }}
+                >My Profile</a>
+              <a className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-orange-600"
+                onClick={() => {
+                  handleMenuItemClick("/payment-history");
+                }}
+              > Payment History</a>
+              <a className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-orange-600"
+                onClick={handleLogout}
+              > Sign Out</a>
+
               </PopoverPanel>
             </Popover>
           ) : (

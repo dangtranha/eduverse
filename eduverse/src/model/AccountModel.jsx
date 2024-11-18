@@ -8,6 +8,7 @@ const AccountModel = {
     const user = mockUsers.find(
       (u) => u.email === email && u.password === password
     );
+    return user ? user : null;
   },
 
   register: async (formData) => {
