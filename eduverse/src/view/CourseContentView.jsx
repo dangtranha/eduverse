@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import CourseContent from '../component/CourseContent';
 import MenuCourseContent from '../component/MenuCourseContent';
 import { getAllCourses } from '../controller/CourseContentCotrller';
-import MenuController from '../Controller/MenuControl';
+import MenuController from '../controller/MenuControl';
 const CourseContentView = () => {
   const [selectedSubItem, setSelectedSubItem] = useState(null);
   const courses = getAllCourses();
