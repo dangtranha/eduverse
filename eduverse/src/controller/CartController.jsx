@@ -14,7 +14,7 @@ const CartController = () => {
       )
     );
   };
-// Phải đặt lại thuộc tính inCart = false trong model 
+
   const handleDeleteCourse = (courseId) => {
     setCartCourses((prev) =>
       prev.map((c) =>
@@ -47,29 +47,40 @@ const CartController = () => {
         My cart
       </h1>
 
-      {/* Danh sách khóa học */}
-      <div className="w-full h-full">
-        <BuyingCard
-          courses={filteredCourses} //
-          onAddCourse={handleAddCourse}
-          onDeleteCourse={handleDeleteCourse}
-        />
-      </div>
-
-      {/* Hiển thị tổng số tiền và nút mua tất cả */}
-      <div className="bg-white shadow-lg p-6 rounded-lg mt-8">
-        <div className="flex justify-between items-center border-b pb-4 mb-4">
-          <p className="text-lg font-semibold">Total price:</p>
-          <p className="text-2xl font-bold text-green-500">
-            ${totalPrice.toFixed(2)}
-          </p>
+      <div className="grid grid-cols-3 gap-4">
+        {/* Danh sách khóa học */}
+        <div className="col-span-2 mt-10">
+          <BuyingCard
+            courses={filteredCourses} // Chỉ truyền các khóa học có inCart = true
+            onAddCourse={handleAddCourse}
+            onDeleteCourse={handleDeleteCourse}
+          />
         </div>
-        <button
-          onClick={handleBuyAll}
-          className="flex items-center justify-center bg-blue-500 text-white px-6 py-3 w-full rounded-md font-semibold hover:bg-blue-600 transition-all duration-300"
-        >
-          <FaShoppingCart className="mr-2 text-lg" /> Buy all
-        </button>
+
+        {/* Hiển thị tổng số tiền và nút mua tất cả */}
+        <div className="col-span-1 bg-white shadow-lg p-6 rounded-lg">
+          <h2 className="text-lg font-semibold mb-4">Cart Summary</h2>
+          <ul className="mb-4">
+            {filteredCourses.map((course) => (
+              <li key={course.id} className="flex justify-between my-2">
+                <span>{course.title}</span>
+                <span>${course.price.toFixed(2)}</span>
+              </li>
+            ))}
+          </ul>
+          <div className="border-t border-gray-200 mt-4 pt-4">
+            <p className="text-lg font-semibold">Total price:</p>
+            <p className="text-2xl font-bold text-green-500 mb-4">
+              ${totalPrice.toFixed(2)}
+            </p>
+            <button
+              onClick={handleBuyAll}
+              className="flex items-center justify-center bg-blue-500 text-white px-6 py-3 w-full rounded-md font-semibold hover:bg-blue-600 transition-all duration-300"
+            >
+              <FaShoppingCart className="mr-2 text-lg" /> Buy all
+            </button>
+          </div>
+        </div>
       </div>
     </div>
   );

@@ -4,11 +4,11 @@ const BuyingCard = ({ courses, onAddCourse, onDeleteCourse }) => {
   return (
     <div>
       {/* Course List */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-2 gap-6">
+      <div className="w-full">
         {courses.map((course) => (
           <div
             key={course.id}
-            className="bg-white rounded-lg shadow-lg overflow-hidden transform transition-all duration-300 hover:scale-105 flex flex-row w-full hover:text-orange-500"
+            className="bg-white rounded-lg shadow-lg overflow-hidden transform transition-all duration-300 flex flex-row w-full hover:text-orange-500 mt-8"
             style={{ height: "250px" }} // Fixed height for consistent layout
           >
             {/* Image Section */}
@@ -42,7 +42,7 @@ const BuyingCard = ({ courses, onAddCourse, onDeleteCourse }) => {
               <div className="p-4 flex space-x-2">
                 {/* Delete Button */}
                 <button
-                  className="bg-red-500 text-white rounded-md px-4 py-2 w-1/2 font-semibold hover:bg-red-600 focus:outline-none"
+                  className="bg-red-500 text-white rounded-md px-4 py-2 w-1/2 font-semibold hover:bg-red-600 focus:outline-none hover:scale-25"
                   onClick={() => onDeleteCourse(course.id)} // Gọi onDeleteCourse với id của course
                 >
                   Delete from cart

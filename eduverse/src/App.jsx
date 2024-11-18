@@ -1,6 +1,6 @@
 import React from "react";
 import HomePage from "./view/HomePage";
-
+import MyCartView from "./view/MyCartView";
 import CourseContentView from "./view/CourseContentView";
 import LoginView from "./view/LoginView";
 
@@ -18,7 +18,7 @@ function App() {
     <div className="App">
 
       {/* login view */}
-      <HomePage />
+      <MyCartView />
 
 
 
