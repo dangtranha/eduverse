@@ -2,7 +2,9 @@ import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import AuthView from "./view/AuthView";
 import CourseContentView from "./view/CourseContentView";
+import HomePage from "./View/HomePage";
 import TestPage from "./view/TestPage";
+
 const App = () => {
   return (
  <Router>

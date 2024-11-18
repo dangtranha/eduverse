@@ -1,16 +1,9 @@
 import express from "express";
-import { getAllCourses } from "../model/CardModel.js";
-import AuthController from "../controller/AuthController.js";
+import { getAllCourses } from "../model/CardRouteModel.js";
 
 const router = express.Router();
-// Đăng nhập người dùng
-router.post("/login", AuthController.handleLoginSubmit);
 
-// Đăng ký
-router.post("/register", AuthController.handleRegisterSubmit);
-
-
-router.get("/course", async (req, res) => {
+router.get("/", async (req, res) => {
   try {
     const courses = await getAllCourses();
     res.json(courses);

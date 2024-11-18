@@ -1,11 +1,10 @@
-import { query } from "../config/dbConfig.js"; // Đảm bảo chỉ rõ phần mở rộng .js khi sử dụng ES Modules
+const BASE_URL = "http://localhost:5000/api/course";
 
-export const getAllCourses = async () => {
-  try {
-    const res = await query("SELECT * FROM Course"); // Sử dụng query trực tiếp
-    return res.rows;
-  } catch (err) {
-    console.error("Error fetching courses:", err);
-    throw err;
+export const courses = async () => {
+  const response = await fetch(BASE_URL);
+  if (!response.ok) {
+    throw new Error("Failed to fetch courses");
   }
+  const data = await response.json();
+  return data;
 };
