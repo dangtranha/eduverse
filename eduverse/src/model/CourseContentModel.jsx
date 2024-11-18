@@ -13,6 +13,9 @@ const courseData = [
       { id: 104, title: "04: Just Do It", duration: "99 Minutes", state: "not-started", content: "Content for Just Do It" },
     ],
   },
+
+
+
   {
     id: 2,
     title: "History of Cringe",

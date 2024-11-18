@@ -10,6 +10,8 @@ export const login = (email, password) => {
   return { success: false, message: "Invalid email or password." };
 };
 
+
+
 export const register = (newAccount) => {
   const exists = accounts.find((acc) => acc.email === newAccount.email);
   if (exists) {
