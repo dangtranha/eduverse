@@ -1,69 +1,73 @@
-// components/MenuCourseContent.jsx
-import React, { useState } from "react";
+import React from "react";
+import {
+  Card,
+  Typography,
+  List,
+  ListItem,
+  ListItemPrefix,
+  Accordion,
+  AccordionHeader,
+  AccordionBody,
+} from "@material-tailwind/react";
+import { ChevronDownIcon } from "@heroicons/react/24/outline";
 
-const MenuCourseContent = ({ courses, onSelectSubItem }) => {
-  const [openIndex, setOpenIndex] = useState(null);
+export function MenuCourseContent({ course }) {
+  const [openSection, setOpenSection] = React.useState(null);
 
-  const toggleSubMenu = (index) => {
-    setOpenIndex(openIndex === index ? null : index);
-  };
-
-  // Determine the state color dynamically based on course or sub-item state
-  const getStateColor = (state) => {
-    switch (state) {
-      case "completed":
-        return "bg-green-100 text-green-700";
-      case "in-progress":
-        return "bg-orange-100 text-orange-700";
-      default:
-        return "bg-gray-100 text-gray-700";
-    }
+  const handleOpen = (sectionId) => {
+    setOpenSection(openSection === sectionId ? null : sectionId);
   };
 
   return (
-    <div className="p-4 bg-white rounded-lg shadow-lg w-full max-w-lg">
-      <h1 className="text-xl font-bold mb-4">Course Content</h1>
-      <div className="space-y-2">
-        {courses.map((course, index) => (
-          <div
-            key={course.id}
-            className={`p-3 rounded-lg ${getStateColor(course.subItems.length > 0 ? "in-progress" : "not-started")}`}
-          >
-            <div
-              onClick={() => toggleSubMenu(index)}
-              className="flex justify-between items-center cursor-pointer"
-            >
-              <div>
-                <p className="font-semibold">{course.title}</p>
-                <p className="text-sm text-gray-600">
-                  {course.progress} • {course.totalTime}
-                </p>
-              </div>
-              <button className="text-gray-500 text-lg">
-                {openIndex === index ? "▴" : "▾"}
-              </button>
-            </div>
-            {openIndex === index && course.subItems.length > 0 && (
-              <div className="mt-2 space-y-2 pl-4">
-                {course.subItems.map((subItem) => (
-                  <div
-                    key={subItem.id}
-                    className={`flex justify-between items-center p-2 rounded-md hover:bg-gray-100 ${getStateColor(
-                      subItem.state
-                    )}`}
-                    onClick={() => onSelectSubItem(subItem)}
-                  >
-                    <p className="text-sm font-medium cursor-pointer">{subItem.title}</p>
-                    <p className="text-xs">{subItem.duration}</p>
-                  </div>
-                ))}
-              </div>
-            )}
-          </div>
-        ))}
+    <Card className="h-[calc(100vh-2rem)] w-full max-w-[20rem] p-4 shadow-xl shadow-blue-gray-900/5">
+      <div className="mb-2 p-4">
+        <Typography variant="h5" color="blue-gray">
+          {course.title}
+        </Typography>
       </div>
-    </div>
+      <List>
+        {course.sections.map((section) => (
+          <Accordion
+            key={section.idsection}
+            open={openSection === section.idsection}
+            icon={
+              <ChevronDownIcon
+                strokeWidth={2.5}
+                className={`mx-auto h-4 w-4 transition-transform ${openSection === section.idsection ? "rotate-180" : ""
+                  }`}
+              />
+            }
+          >
+            <ListItem className="p-0" selected={openSection === section.idsection}>
+              <AccordionHeader
+                onClick={() => handleOpen(section.idsection)}
+                className="border-b-0 p-3"
+              >
+                <Typography
+                  color="blue-gray"
+                  className="mr-auto font-normal text-left" // Added text-left here
+                >
+                  {section.titlesection}
+                </Typography>
+              </AccordionHeader>
+            </ListItem>
+            <AccordionBody className="py-1">
+              <List className="p-0">
+                {section.elements.map((element) => (
+                  <ListItem key={element.idelement}>
+                    <ListItemPrefix>
+                      <ChevronDownIcon strokeWidth={3} className="h-3 w-5" />
+                    </ListItemPrefix>
+                    <Typography color="blue-gray">
+                      {element.titleelement}
+                    </Typography>
+                  </ListItem>
+                ))}
+              </List>
+            </AccordionBody>
+          </Accordion>
+        ))}
+      </List>
+    </Card>
   );
-};
-
-export default MenuCourseContent;
+}
