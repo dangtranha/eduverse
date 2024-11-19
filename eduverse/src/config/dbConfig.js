@@ -1,9 +1,7 @@
-// src/config/dbConfig.js
 import pkg from 'pg';
-const { Pool } = pkg;
-
-// Cấu hình kết nối
-const pool = new Pool({
+const { Client } = pkg;
+// Thiết lập kết nối đến PostgreSQL
+const client = new Client({
   user: "postpres",
   host: "localhost",
   database: "webfinal",
@@ -11,7 +9,8 @@ const pool = new Pool({
   port: 5432,
 });
 
-// Hàm truy vấn
-const query = (text, params) => pool.query(text, params);
+client.connect()
+  .then(() => console.log("Connected to the database"))
+  .catch((err) => console.error("Error connecting to the database", err));
 
-export { query };
+export const query = (text, params) => client.query(text, params);

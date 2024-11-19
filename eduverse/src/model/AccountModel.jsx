@@ -1,24 +1,48 @@
-const mockUsers = [
-  { email: "test@gmail.com", password: "123456" },
-];
-
 const AccountModel = {
   login: async (email, password) => {
-    // Kiểm tra tài khoản có tồn tại trong danh sách mockUsers
-    const user = mockUsers.find(
-      (u) => u.email === email && u.password === password
-    );
-    return user ? user : null;
+    try {
+      const response = await fetch("http://localhost:5000/api/login", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email, password }),
+      });
+
+      if (!response.ok) {
+        // Xử lý lỗi nếu đăng nhập thất bại
+        const errorData = await response.json();
+        alert(errorData.message);
+        return null;
+      }
+
+      const data = await response.json(); // Lấy dữ liệu từ phản hồi server
+      return data.user; // Trả về thông tin người dùng
+    } catch (error) {
+      console.error("Error logging in:", error);
+      alert("An error occurred while logging in. Please try again.");
+      return null;
+    }
   },
 
   register: async (formData) => {
-    const userExists = mockUsers.some((u) => u.email === formData.email);
-    if (userExists) {
-      return false; // Email đã tồn tại
+    try {
+      const response = await fetch("http://localhost:5000/api/register", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
+      });
+
+      if (!response.ok) {
+        const errorData = await response.json();
+        alert(errorData.message);
+        return false;
+      }
+
+      return true; // Đăng ký thành công
+    } catch (error) {
+      console.error("Error registering user:", error);
+      alert("An error occurred while registering. Please try again.");
+      return false;
     }
-    // Thêm người dùng mới
-    mockUsers.push({ email: formData.email, password: formData.password });
-    return true;
   },
 };
 
