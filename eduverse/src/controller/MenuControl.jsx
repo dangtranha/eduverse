@@ -7,10 +7,10 @@ import { NavLink } from 'react-router-dom';
 
 const MenuController = () => {
   const [activeDropdown, setActiveDropdown] = useState(null);
-  const [isLoggedIn, setIsLoggedIn] = useState(AuthController.isAuthenticated());
+  // const [isLoggedIn, setIsLoggedIn] = useState(AuthController.isAuthenticated());
   const [userData, setUserData] = useState(null); // Lưu thông tin người dùng
   const navigate = useNavigate();
-    // Kiểm tra trạng thái đăng nhập khi component được khởi tạo
+  // Kiểm tra trạng thái đăng nhập khi component được khởi tạo
 
   const handleDropdown = (id) => {
     setActiveDropdown(activeDropdown === id ? null : id);
@@ -44,7 +44,7 @@ const MenuController = () => {
       activeDropdown={activeDropdown}
       handleDropdown={handleDropdown}
       handleMenuItemClick={handleMenuItemClick}
-      isLoggedIn={isLoggedIn}
+      // isLoggedIn={isLoggedIn}
       userData={userData} // Truyền thông tin người dùng vào MenuView
       handleLogin={handleLogin}
       handleLogout={handleLogout}

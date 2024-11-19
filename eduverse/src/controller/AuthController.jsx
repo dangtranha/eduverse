@@ -75,4 +75,14 @@ const AuthController = {
 
 };
 
+
+
+export const register = (newAccount) => {
+  const exists = accounts.find((acc) => acc.email === newAccount.email);
+  if (exists) {
+    return { success: false, message: "Email already registered." };
+  }
+  accounts.push(newAccount);
+  return { success: true, message: "Registration successful!" };
+};
 export default AuthController;

@@ -1,18 +1,36 @@
 import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import AuthView from "./view/AuthView";
-import CourseContentView from "./view/CourseContentView";
-import HomePage from "./View/HomePage";
-import TestPage from "./view/TestPage";
 
-const App = () => {
+
+import HomePage from "./view/HomePage";
+
+
+// import CourseContentView from "./view/CourseContentView";
+import Login from "./view/LoginView"
+// import CardControler from "./controller/CardController";
+
+
+
+
+function App() {
   return (
- <Router>
-      <Routes>
-        <Route path="/auth" element={<AuthView />} />
-        <Route path="/coursecontent" element={<CourseContentView/>} />
-      </Routes>
-    </Router>
+    <div className="App">
+
+      <HomePage />
+
+    </div>
+    // <TestPage />
+
+    // const App = () => {
+    //     return (
+    //       <Router>
+    //         <Routes>
+    //           <Route path="/auth" element={<AuthView />} />
+    //           <Route path="/coursecontent" element={<CourseContentView />} />
+    //         </Routes>
+    //       </Router>
+    // >>>>>>> develop
   );
 };
 
