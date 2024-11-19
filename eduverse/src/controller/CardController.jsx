@@ -1,15 +1,25 @@
-// src/controllers/CourseController.jsx
-import React, { useState } from "react";
-import CourseView from "../component/CardCourse";
-import { courses as initialCourses } from "../model/CardModel";
+import React, { useEffect, useState } from "react";
+import { getCourses } from "../model/CardModel"; // Import Model
+import CourseView from "../component/CardCourse"; // Import View
 
 const CourseController = () => {
-  const [courses, setCourses] = useState(initialCourses);
+  const [courses, setCourses] = useState([]);
   const [sortBy, setSortBy] = useState("price");
   const [filterCategory, setFilterCategory] = useState("All");
 
   const categories = ["All", "Development", "Data Science", "Marketing", "Design"];
 
+  // Fetch courses khi component mount
+  useEffect(() => {
+    const fetchCourses = async () => {
+      const data = await getCourses(); // Lấy dữ liệu từ model
+      setCourses(data); // Gán dữ liệu vào state
+    };
+
+    fetchCourses();
+  }, []);
+
+  // Sắp xếp khóa học
   const handleSort = (type) => {
     setSortBy(type);
     const sortedCourses = [...courses].sort((a, b) => {
@@ -20,11 +30,12 @@ const CourseController = () => {
     setCourses(sortedCourses);
   };
 
+  // Lọc theo danh mục
   const handleFilter = (category) => {
     setFilterCategory(category);
-    const filteredCourses = initialCourses.filter((course) =>
-      category === "All" ? true : course.category === category
-    );
+    const filteredCourses = category === "All"
+      ? courses
+      : courses.filter((course) => course.category === category);
     setCourses(filteredCourses);
   };
 

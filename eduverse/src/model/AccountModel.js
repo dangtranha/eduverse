@@ -44,6 +44,8 @@ const AccountModel = {
       return false;
     }
   },
+
 };
 
 export default AccountModel;
+ 
