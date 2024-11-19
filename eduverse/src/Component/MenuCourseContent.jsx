@@ -33,8 +33,7 @@ export function MenuCourseContent({ course }) {
             icon={
               <ChevronDownIcon
                 strokeWidth={2.5}
-                className={`mx-auto h-4 w-4 transition-transform ${openSection === section.idsection ? "rotate-180" : ""
-                  }`}
+                className={`mx-auto h-4 w-4 transition-transform ${openSection === section.idsection ? "rotate-180" : ""}`}
               />
             }
           >
@@ -53,10 +52,13 @@ export function MenuCourseContent({ course }) {
             </ListItem>
             <AccordionBody className="py-1">
               <List className="p-0">
-                {section.elements.map((element) => (
+                {section.elements.map((element, index) => (
                   <ListItem key={element.idelement}>
                     <ListItemPrefix>
-                      <ChevronDownIcon strokeWidth={3} className="h-3 w-5" />
+                      {/* Hiển thị biểu tượng chỉ khi element không phải là phần tử cuối cùng */}
+                      {/* {index < section.elements.length - 1 && (
+                        <ChevronDownIcon strokeWidth={3} className="h-3 w-5" />
+                      )} */}
                     </ListItemPrefix>
                     <Typography color="blue-gray">
                       {element.titleelement}

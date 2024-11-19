@@ -27,17 +27,19 @@ const CourseCardDiscover = ({ courses = [], addToCart, seeMore }) => {
                         />
                     </div>
 
-                    <div className="w-2/3 p-6 flex flex-col justify-between">
+                    <div className="w-3/7 p-6 flex flex-col justify-between">
                         <div>
+                            <p className="text-xl font-bold text-gray-600 mb-4">{course.title}</p>
+
                             <div className="flex items-center justify-between text-gray-600 mb-4">
                                 <div className="flex items-center">
                                     <FaGraduationCap className="mr-2" />
                                     <span>{course.instructor}</span>
                                 </div>
-                                <div className="flex items-center">
+                                {/* <div className="flex items-center">
                                     <FaClock className="mr-2" />
                                     <span>{course.duration}</span>
-                                </div>
+                                </div> */}
                                 <div className="flex items-center">
                                     <FaBook className="mr-2" />
                                     <span>{course.lectures} lectures</span>
