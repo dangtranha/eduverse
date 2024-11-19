@@ -1,6 +1,5 @@
 import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import AuthView from "./view/AuthView";
 
 
 import HomePage from "./view/HomePage";
@@ -14,14 +13,19 @@ import MyProFileView from "./view/MyProfile";
 import Certificate from "./controller/CertificateController"
 import CertificateView from "./view/CertificateView";
 import CertificateController from "./controller/CertificateController";
+import AuthView from "./view/AuthView";
 
 
 function App() {
   return (
-    <div className="App">
-
-      <HomePage />
-    </div>
+    <Router> {/* Bọc toàn bộ ứng dụng trong Router */}
+      <div className="App">
+        <Routes>
+          {/* <HomePage /> */}
+          <Route path="/auth" element={<AuthView />} /> {/* Thêm route cho AuthView */}
+        </Routes>
+      </div>
+    </Router>
 
   )
 };

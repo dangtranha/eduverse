@@ -6,7 +6,7 @@ const LoginForm = ({ onSubmit, onSwitchToRegister }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    onSubmit(email, password);
+    onSubmit(email, password); // Gọi hàm onSubmit từ AuthController
   };
 
   return (
@@ -14,9 +14,7 @@ const LoginForm = ({ onSubmit, onSwitchToRegister }) => {
       <form className="space-y-6" onSubmit={handleSubmit}>
         <h5 className="text-xl font-medium">Sign in to your account</h5>
         <div>
-          <label htmlFor="email" className="block mb-2 text-sm">
-            Your email
-          </label>
+          <label htmlFor="email" className="block mb-2 text-sm">Your email</label>
           <input
             type="email"
             id="email"
@@ -28,9 +26,7 @@ const LoginForm = ({ onSubmit, onSwitchToRegister }) => {
           />
         </div>
         <div>
-          <label htmlFor="password" className="block mb-2 text-sm">
-            Your password
-          </label>
+          <label htmlFor="password" className="block mb-2 text-sm">Your password</label>
           <input
             type="password"
             id="password"

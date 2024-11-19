@@ -5,7 +5,7 @@ import RegisterForm from "../component/RegisterForm";
 import AuthController from "../controller/AuthController";
 
 const AuthView = () => {
-  const [isLogin, setIsLogin] = useState(true); // Quản lý trạng thái
+  const [isLogin, setIsLogin] = useState(true);
   const navigate = useNavigate();
 
   const handleLogin = (email, password) => {
