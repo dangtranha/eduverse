@@ -24,7 +24,7 @@ const CartController = () => {
   };
 
   // Lọc danh sách khóa học có inCart = true
-  const filteredCourses = cartCourses.filter((course) => course.inCart);
+  const filteredCourses = cartCourses.filter((course) => course.inCart = true);
 
   // Tính tổng số tiền phải trả
   const totalPrice = filteredCourses.reduce(
@@ -52,7 +52,6 @@ const CartController = () => {
         <div className="col-span-2 mt-10">
           <BuyingCard
             courses={filteredCourses} // Chỉ truyền các khóa học có inCart = true
-            onAddCourse={handleAddCourse}
             onDeleteCourse={handleDeleteCourse}
           />
         </div>

@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import { FaShoppingCart } from "react-icons/fa"; // Import React Icons
 import BuyingCard from "../Component/BuyingCard";
-import { course as initialCourses } from "../model/CartModel";  
+import { course as initialCourses } from "../model/CartModel";
 import MyProFile from "../Component/MyProfile"
-import ProfileCertificate from "../Component/ProfileCertificate";
+// import ProfileCertificate from "../Component/ProfileCertificate";
 
 const MyProfileController = () => {
   // Quản lý state
@@ -22,9 +22,9 @@ const MyProfileController = () => {
   });
   return (
     <MyProFile
-    courses={filteredCourses}
-    userData={userData} 
-  />
+      courses={filteredCourses}
+      userData={userData}
+    />
   );
 };
 export default MyProfileController;

@@ -1,6 +1,6 @@
 import React from "react";
 
-const BuyingCard = ({ courses, onAddCourse, onDeleteCourse }) => {
+const BuyingCard = ({ courses, onDeleteCourse }) => {
   return (
     <div>
       {/* Course List */}

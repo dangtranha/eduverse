@@ -5,15 +5,10 @@ import Categories from "../controller/CategoriesController";
 import DiscoverPageView from "./Discover/DiscoverPageView"
 import MyProfileController from "../controller/MyProfileController";
 import MyCourseView from "./MyCourse/MyCourseView";
-import CartController from "../controller/CartController";
 import ProfileView from "./ProfileView";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
-
-import {
-  BrowserRouter as Router,
-  Routes,
-  Route
-} from "react-router-dom";
+import CartController from "../controller/CartController";
 
 
 
@@ -21,8 +16,6 @@ function HomePage() {
   return (
     <Router>
       <div>
-
-
         <MenuControl />
         <Routes>
           <Route path="/" element={<><Categories /><CardControl /></>} />
@@ -32,23 +25,14 @@ function HomePage() {
           <Route path="/categories" element={<Categories />} />
           <Route path="/my-information/*" element={<ProfileView />} />
           <Route path="/my-profile" element={<MyProfileController />} />
-          <Route path="/payment-history" element={<div>ok</div>} />
+          <Route path="/payment-history" element={<div>Payment</div>} />
 
           <Route path="/shopping" element={<CartController />} />
           <Route path="/announce" element={<div></div>} />
-
-
-
           <Route path="*" element={<div>404</div>} />
-
-
-        </Routes>
-
-
-
-      </div>
-    </Router >
-
+        </Routes >
+      </div >
+    </Router>
   )
 }
 
