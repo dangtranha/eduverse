@@ -12,3 +12,12 @@ export const categories = [
   { name: 'Science', courses: '10 Courses', icon: <FiMic /> },
   { name: 'Network', courses: '11 Courses', icon: <FiGlobe /> },
 ];
+
+
+// src/model/MenuPopoverModel.js
+export const MenuPopupInformation = [
+  { id: 1, label: "My Information", link: "/my-information" },
+  { id: 2, label: "My Profile", link: "/my-profile" },
+  { id: 3, label: "Payment History", link: "/payment-history" },
+  { id: 4, label: "Sign Out", link: "/sign-out" },
+];
