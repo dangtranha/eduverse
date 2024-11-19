@@ -56,23 +56,7 @@ const AuthController = {
     } else {
       alert("Email already exists!");
     }
-    
-  },
-  isAuthenticated: () => {
-    return localStorage.getItem("isLoggedIn") === "true";
-  },
-  getCurrentUser: () => {
-    const userData = localStorage.getItem("userData");
-    return userData ? JSON.parse(userData) : null;
-  },
-  handleLogout: (navigate) => {
-    // Xóa thông tin người dùng khỏi localStorage
-    localStorage.removeItem("isLoggedIn");
-    localStorage.removeItem("userData");
-    alert("Logged out successfully!");
-    navigate("/coursecontent"); // Điều hướng về trang chủ
   }
-
 };
 
 
