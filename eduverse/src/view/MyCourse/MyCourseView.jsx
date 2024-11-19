@@ -5,7 +5,7 @@ import CourseContentController from "../../controller/CourseContentController";
 
 function MyCourseView() {
     return (
-        <div className="flex w-p-2 w-full flex-col items-start">
+        <div className="flex  w-1/2 flex flex-col justify-between w-full flex-col items-start">
             <Routes>
                 <Route path="/" element={<ListMyCourseController />} />
                 <Route path=":courseId/*" element={<CourseContentController />} />

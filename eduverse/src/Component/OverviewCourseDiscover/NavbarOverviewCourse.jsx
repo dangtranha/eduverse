@@ -1,15 +1,26 @@
-import React from "react";
+import React, { useState } from "react";
 
-const NavbarOverviewCourse = ({ menuItems, handleMenuItemClick }) => (
-    <nav className="shadow-lg  rounded-lg w-full items-center">
-        <div className=" px-4 sm:px-6 lg:px-8">
-            <div className="items-center h-16">
-                <div className=" hidden md:flex justify-between  justify-center items-center items-center space-x-8">
+const NavbarOverviewCourse = ({ menuItems, handleMenuItemClick }) => {
+    const [activeItem, setActiveItem] = useState(null); // Lưu trữ nút đang được chọn
+
+    const handleClick = (item) => {
+        setActiveItem(item.id); // Cập nhật trạng thái nút được chọn
+        handleMenuItemClick(item.link); // Gọi hàm điều hướng
+    };
+
+    return (
+        <nav className="bg-slate-50 shadow-lg rounded-lg w-full">
+            <div className="px-4 sm:px-6 lg:px-8">
+                <div className="flex items-center justify-center h-16 space-x-4">
                     {menuItems.map((item) => (
                         <div key={item.id} className="relative">
                             <button
-                                onClick={() => handleMenuItemClick(item.link)}
-                                className="text-gray-700 hover:text-orange-600 px-3 py-2 rounded-md text-sm font-medium transition duration-300 flex items-center"
+                                onClick={() => handleClick(item)}
+                                className={`px-1 py-3 rounded-md text-sm font-medium transition duration-300 flex items-center 
+                                    ${activeItem === item.id
+                                        ? "bg-yellow-400 text-white"
+                                        : "text-gray-700 hover:text-orange-600"
+                                    }`}
                             >
                                 {item.label}
                             </button>
@@ -17,8 +28,8 @@ const NavbarOverviewCourse = ({ menuItems, handleMenuItemClick }) => (
                     ))}
                 </div>
             </div>
-        </div>
-    </nav>
-);
+        </nav>
+    );
+};
 
 export default NavbarOverviewCourse;

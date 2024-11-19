@@ -18,20 +18,20 @@ const OverviewCourseView = () => {
     const { courseId } = useParams();
 
     return (
-        <div className="py-8  flex flex-col justify-center items-center ">
-            <div className="w-full flex flex-col justify-center items-center  justify-center mb-4">
+        <div className="py-8 flex flex-col w-full max-w-4xl mx-auto items-center">
+            <div className="w-full mb-4">
                 <NavbarOverviewCourseController />
             </div>
-            <Routes>
-
-                <Route path="/" element={<Navigate to="overview" replace />} />
-                <Route path="overview" element={<OverviewController courseId={courseId} />} />
-                <Route path="curriculum" element={<CurriculumController courseId={courseId} />} />
-                <Route path="review" element={<ReviewController courseId={courseId} />} />
-                <Route path="payment" element={<PaymentController courseId={courseId} />} />
-            </Routes >
-
-        </div >
+            <div className="w-full">
+                <Routes>
+                    <Route path="/" element={<Navigate to="overview" replace />} />
+                    <Route path="overview" element={<OverviewController courseId={courseId} />} />
+                    <Route path="curriculum" element={<CurriculumController courseId={courseId} />} />
+                    <Route path="review" element={<ReviewController courseId={courseId} />} />
+                    <Route path="payment" element={<PaymentController courseId={courseId} />} />
+                </Routes>
+            </div>
+        </div>
     );
 };
 

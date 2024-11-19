@@ -10,7 +10,7 @@ import {
 
 const ListMyCourse = ({ courses = [], addToCart, seeMore }) => {
     return (
-        <div className=" mx-auto p-4" >
+        <div className="w-3/7 px-60 flex flex-col justify-between mx-auto p-4" >
             {courses.map((course) => (
                 <div
                     key={course.id}

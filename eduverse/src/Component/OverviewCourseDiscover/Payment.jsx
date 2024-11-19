@@ -3,7 +3,7 @@ import { FaCartPlus } from "react-icons/fa";
 
 const Payment = ({ course, addToCart, seeMore }) => {
     return (
-        <div className="mx-auto w-full p-4">
+        <div className="bg-slate-50 mx-auto w-full rounded-lg p-4">
             <div
                 key={course.id}
                 className="bg-white rounded-lg shadow-md hover:shadow-xl transition-all duration-300 transform hover:scale-105 flex overflow-hidden"
