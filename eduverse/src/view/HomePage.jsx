@@ -7,6 +7,7 @@ import DiscoverPageView from "./Discover/DiscoverPageView"
 import MyCourseView from "./MyCourse/MyCourseView";
 // import CourseContentView from "./CourseContentView";
 import CourseContentController from "../controller/CourseContentController"
+import CartController from "../controller/CartController";
 import { MenuCourseContent } from "../Component/MenuCourseContent";
 
 import {
@@ -36,7 +37,7 @@ function HomePage() {
           <Route path="/my-profile" element={<>profile</>} />
           <Route path="/payment-history" element={<CourseContentController />} />
 
-          {/* <Route path="/shopping" element={<CourseContentView />} /> */}
+          <Route path="/shopping" element={<CartController />} />
           <Route path="/announce" element={<div></div>} />
 
 
